@@ -3,7 +3,7 @@ Print["Metamaterial(SemiconductorsV52p1886).nb"];
 
 Print[" ----------------------------------------------------"];
 Print[" The Image of the Metamaterial of the paper  "];
-Print[" Model of Metamaterial Based on Graphene Scrolls "];
+Print[" Model of Metamaterial Based on Carbon NanoScrolls "];
 Print[" and Carbon Nanotubes with Negative Refractive Index "];
 Print[" /A.I.Siahlo, N.A.Poklonski, S.A.Vyrko and S.V.Ratkevich"];
 Print[" //Semiconductors.- 2018.- V. 52, № 14.- P.1886 (4 pp.)."];
@@ -119,12 +119,12 @@ rNanotubep = rNanotubep;
 Print["rNanotube(", n, "," n, ")=", rNanotubep/nm, "nm"];
 PhiIn1p = fPhivsRh[NumberScrollLayersp, RIn1p, hp];
 PhiOut1p = fPhiOut1vsL1RIn1h[NumberScrollLayersp, L1p, RIn1p, hp];
-Print["PhiIn1=", PhiIn1p/(2 Pi), "(2Pi), PhiOut1=",  PhiOut1p/(2 Pi), 
-  "(2Pi)"];
+Print["PhiIn1=", PhiIn1p/(2 Pi), "(2Pi),"];
+Print["PhiOut1=",PhiOut1p/(2 Pi),"(2Pi)"];
 PhiIn2p = PhiIn1p + Pi;
 PhiOut2p = PhiOut1p + Pi;
-Print["PhiIn2=", PhiIn2p/(2 Pi), "(2Pi), PhiOut2=",  PhiOut2p/(2 Pi), 
-  "(2Pi)"];
+Print["PhiIn2=", PhiIn2p/(2 Pi),"(2Pi)"];
+Print["PhiOut2=",PhiOut2p/(2 Pi),"(2Pi)"];
 ROut1p = fRvsPhih[NumberScrollLayersp, PhiOut1p, hp] ;
 Print["RIn1=", RIn1p/nm, "nm,  ROut1=", ROut1p/nm, "nm"];
 aScrollXZp = 2 ROut1p + hp + 2 rNanotubep;
@@ -134,8 +134,8 @@ aNanotubesXYp = 2 ROut1p + hp + 2 rNanotubep;
 Print[" The distance between the centrums of the Nanotubes"];
 Print["  in the XY-plane aNanotubesXY=", aNanotubesXYp/nm, "nm"];
 NanotubeLengthXp = aScrollXZp (nNanoscrollsXp + 1);
-Print["The Length of the Nanotubes along the X-axe: NanotubeLengthX=",
-   NanotubeLengthXp/nm, "nm"];
+Print["The Length of the Nanotubes along the X-axe:"];
+Print[" NanotubeLengthX=",NanotubeLengthXp/nm, "nm"];
 NanoscrollLengthYp = aNanotubesXYp (nNanotubesYp);
 Print["The Length of the Nanoscrolls along the Y-axe:"];
 Print["  NanoscrollLengthY=", NanoscrollLengthYp/nm, "nm"];
@@ -149,12 +149,14 @@ Print["Draw the spirales of a nanoscroll"];
 Spirale1ScrollSingle = 
   ParametricPlot[{Cos[
       Phiv] (Phiv - 
-       Spirale1RotAnglep) (NumberScrollLayersp hp)/(2 Pi)/nm Scale09, 
+   Spirale1RotAnglep)
+     (NumberScrollLayersp hp)/(2 Pi)/nm Scale09, 
     Sin[Phiv] (Phiv - 
        Spirale1RotAnglep) (NumberScrollLayersp hp)/(2 Pi)/
       nm Scale09}, {Phiv, Spirale1RotAnglep + PhiIn1p, 
     Spirale1RotAnglep + PhiOut1p}, 
-   PlotRange -> {{-ROut1p/nm, ROut1p/nm }, {-ROut1p/nm, ROut1p/nm }}, 
+PlotRange -> {{-ROut1p/nm, ROut1p/nm }, 
+              {-ROut1p/nm, ROut1p/nm }}, 
    PlotStyle -> {Black, Thick}, Axes -> True];
 
 If[NumberScrollLayersp == 1,
@@ -166,12 +168,14 @@ If[NumberScrollLayersp == 1,
 Spirale2ScrollSingle = 
   ParametricPlot[{Cos[
       Phiv] (Phiv - 
-       Spirale2RotAnglep) (NumberScrollLayersp hp)/(2 Pi)/nm Scale09, 
+ Spirale2RotAnglep)
+      (NumberScrollLayersp hp)/(2 Pi)/nm Scale09, 
     Sin[Phiv] (Phiv - 
        Spirale2RotAnglep) (NumberScrollLayersp hp)/(2 Pi)/
       nm Scale09}, {Phiv, Spirale2RotAnglep + PhiIn2p - Pi, 
     Spirale2RotAnglep + PhiOut2p - Pi}, 
-   PlotRange -> {{-ROut1p/nm, ROut1p/nm }, {-ROut1p/nm, ROut1p/nm }}, 
+PlotRange -> {{-ROut1p/nm, ROut1p/nm },
+              {-ROut1p/nm, ROut1p/nm }}, 
    PlotStyle -> {Gray, Thick}, Axes -> True];
 If[NumberScrollLayersp == 2,
   If[ShowScrollSpirales,
@@ -257,7 +261,8 @@ Scroll13D00 =
     0, NanoscrollLengthYp}, PlotPoints -> 5, 
    PlotStyle -> {Gray, Thick}, 
    PlotRange -> {{-ROut1p/nm, ROut1p /nm}, {-aScrollXZp N07, 
-      NanoscrollLengthYp /nm}, {-ROut1p/nm, ROut1p/nm}}, Axes -> True,
+      NanoscrollLengthYp /nm}, {-ROut1p/nm, ROut1p/nm}},
+      Axes -> True,
     ColorFunction -> Function[{x, y, z, u, v}, Gray], 
    ColorFunctionScaling -> False];
 Scroll23D00 = 
@@ -269,7 +274,8 @@ Scroll23D00 =
     Spirale2RotAnglep + PhiOut2p - Pi}, {yv, 0, NanoscrollLengthYp}, 
    PlotPoints -> 5, PlotStyle -> {Gray, Thick}, 
    PlotRange -> {{-ROut1p/nm, ROut1p /nm}, {-aScrollXZp N07, 
-      NanoscrollLengthYp /nm}, {-ROut1p/nm, ROut1p/nm}}, Axes -> True,
+      NanoscrollLengthYp /nm}, {-ROut1p/nm, ROut1p/nm}},
+      Axes -> True,
     ColorFunction -> Function[{x, y, z, u, v}, LightGray], 
    ColorFunctionScaling -> False];
 If[NumberScrollLayersp == 1,
@@ -280,8 +286,7 @@ If[NumberScrollLayersp == 1,
   ];
 If[NumberScrollLayersp == 2,
   If[ShowNanoscrollSingle,
-    Print[
-  "Show[Scroll13D00], Show[Scroll23D00],Show[Scroll13D00,Scroll23D00]:"];
+   Print["Scroll13D00],Scroll23D00],Scroll13D00,Scroll23D00]:"];
     Print[Show[Scroll13D00, ImageSize -> Small], 
      Show[Scroll23D00, ImageSize -> Small], "              ", 
      Show[Scroll13D00, Scroll23D00, ImageSize -> Small]];
@@ -296,8 +301,9 @@ tScroll13DXZ =
      yv, -aScrollXZp/nm/2 + kNanoscrollZ aScrollXZp/nm + 
       Sin[Phiv] (Phiv - Spirale1RotAnglep) 
        NumberScrollLayersp hp/nm/(2 Pi)}, {Phiv, 
-     Spirale1RotAnglep + PhiIn1p, Spirale1RotAnglep + PhiOut1p}, {yv, 
-     0, NanoscrollLengthYp}, PlotPoints -> 5, 
+     Spirale1RotAnglep + PhiIn1p, 
+     Spirale1RotAnglep + PhiOut1p}, 
+     {yv, 0, NanoscrollLengthYp}, PlotPoints -> 5, 
     PlotStyle -> {Gray, Thick}, 
     PlotRange -> {{-aScrollXZp N07, 
        NanotubeLengthXp + aScrollXZp N07}, {-aNanotubesXYp N07, 
@@ -317,7 +323,8 @@ tScroll23DXZ =
       Sin[Phiv] (Phiv - Spirale2RotAnglep) 
        NumberScrollLayersp hp/nm/(2 Pi)}, {Phiv, 
      Spirale2RotAnglep + PhiIn2p - Pi, 
-     Spirale2RotAnglep + PhiOut2p - Pi}, {yv, 0, NanoscrollLengthYp}, 
+     Spirale2RotAnglep + PhiOut2p - Pi}, 
+     {yv, 0, NanoscrollLengthYp}, 
     PlotPoints -> 5, PlotStyle -> {Gray, Thick}, 
     PlotRange -> {{-aScrollXZp N07, 
        NanotubeLengthXp + aScrollXZp N07}, {-aNanotubesXYp N07, 
@@ -331,7 +338,7 @@ tScroll23DXZ =
 Print[Show[tScroll13DXZ,tScroll23DXZ,ImageSize->Medium]];*)
 Print["    --------Show the Metamaterial:-----------"];
 Print["    (Fig.4 of the paper"];
-Print["     Model of Metamaterial Based on Graphene Scrolls "];
+Print["     Model of Metamaterial Based on Carbon Nanoscrolls "];
 Print["     and Carbon Nanotubes with Negative Refractive Index "];
 Print["  / A.I.Siahlo, N.A.Poklonski, S.A.Vyrko and S.V.Ratkevich "];
 Print["  //Semiconductors.- 2018. - V. 52, № 14.- P.1886 (4 pp.). )"];
@@ -343,7 +350,8 @@ If[ShowStructureProjections,
       Print["   and its projections:"];
   Print[Show[tScroll13DXZ, tScroll23DXZ, tNanotubeYZ, 
     ImageSize -> Medium, ViewPoint -> Front], 
-   Show[tScroll13DXZ, tScroll23DXZ, tNanotubeYZ, ImageSize -> Medium, 
+   Show[tScroll13DXZ, tScroll23DXZ, tNanotubeYZ, 
+        ImageSize -> Medium, 
     ViewPoint -> Left]];
   Print[Show[tScroll13DXZ, tScroll23DXZ, tNanotubeYZ, 
     ImageSize -> Medium, ViewPoint -> Top]];
