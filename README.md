@@ -8,6 +8,9 @@ The image of the metamaterial with the parameters nNanoscrollsXp=4, nNanoscrolls
 
 [1]. Model of Metamaterial Based on Graphene Scrolls and Carbon Nanotubes with Negative Refractive Index / A.I. Siahlo, N.A. Poklonski, S.A. Vyrko and S.V. Ratkevich // //Semiconductors.- 2018.- V. 52, № 14.- P.1886 (4 pp.).[DOI: 10.1134/S1063782618140294]
 
+Andrei Siahlo, 
+https://www.researchgate.net/profile/Andrei-Siahlo
+
 
 
 
